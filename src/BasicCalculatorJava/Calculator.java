@@ -1,16 +1,16 @@
 package BasicCalculatorJava;
 
 import BasicCalculatorJava.Operations.sum;
-import jdk.internal.util.xml.impl.Input;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/* This is a simple calculator. It's my first repository in Github with Java
+/**
+ * This is a simple calculator. It's my first repository in Github with Java
  * code. I hope I'll continue coding and learning :)
- *
  */
+
 public class Calculator {
     public static void main(String[] args) {
         int selection = 0;
@@ -34,6 +34,10 @@ public class Calculator {
                     System.out.println("\nTotal: " + Sum.doSum());
                     break;
 
+                case 2:
+
+                    break;
+
                 case 9:
                     System.out.println("See ya later!! ;D");
                     System.exit(0);
@@ -46,10 +50,7 @@ public class Calculator {
         System.out.println("Hey!! what u want to do? :D");
         System.out.println("1) I want a sum!");
         System.out.println("9) Good bye!");
-        System.out.println("\n");
         System.out.println("--------------------");
-
-
     }
 
     private static ArrayList<Integer> getNums(Scanner reader) {
