@@ -28,17 +28,10 @@ public class Calculator {
 
             switch (selection) {
                 case 1:
-                    int checkNum;
-                    ArrayList<Integer> nums = new ArrayList<>();
                     System.out.println("Type all the numbers u want to sum separated with spaces:");
-                    reader.nextLine();
+                    sum Sum = new sum(getNums(reader));
 
-                    for (String token; (token = reader.findInLine("[1-9]")) != null;)
-                        nums.add(Integer.valueOf(token));
-
-                    sum Sum = new sum(nums);
                     System.out.println("\nTotal: " + Sum.doSum());
-
                     break;
 
                 case 9:
@@ -57,5 +50,22 @@ public class Calculator {
         System.out.println("--------------------");
 
 
+    }
+
+    private static ArrayList<Integer> getNums(Scanner reader) {
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        reader.nextLine(); // This is necessary to read the input correctly.
+
+         /*
+          * The for loop make a variable called 'token' every loop and save
+          * something in It that match with the pattern of the 'findInLine' function.
+          * The 'Integer.valueOf()' function return the int value of the string.
+          */
+
+        for (String token; (token = reader.findInLine("[1-9]")) != null;)
+            nums.add(Integer.valueOf(token));
+
+        return nums;
     }
 }
