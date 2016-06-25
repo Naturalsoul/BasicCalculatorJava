@@ -13,7 +13,10 @@ public class subtraction {
 
     public int doSubtraction() {
         int sub = 0;
-        for (Integer num : nums) sub -= num;
+        for (Integer num : nums) {
+            if (sub == 0) { sub = num; }
+            else { sub -= num; }
+        }
 
         return sub;
     }

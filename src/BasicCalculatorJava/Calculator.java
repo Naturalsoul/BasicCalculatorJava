@@ -1,6 +1,7 @@
 package BasicCalculatorJava;
 
 import BasicCalculatorJava.Operations.sum;
+import BasicCalculatorJava.Operations.subtraction;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -35,7 +36,10 @@ public class Calculator {
                     break;
 
                 case 2:
+                    System.out.println("Type all the numbers u want to subtract separated with spaces:");
+                    subtraction Sub = new subtraction(getNums(reader));
 
+                    System.out.println("\nTotal: " + Sub.doSubtraction());
                     break;
 
                 case 9:
@@ -49,6 +53,7 @@ public class Calculator {
         System.out.println("--------------------");
         System.out.println("Hey!! what u want to do? :D");
         System.out.println("1) I want a sum!");
+        System.out.println("2) Subtraction, pls.");
         System.out.println("9) Good bye!");
         System.out.println("--------------------");
     }
@@ -64,7 +69,7 @@ public class Calculator {
           * The 'Integer.valueOf()' function return the int value of the string.
           */
 
-        for (String token; (token = reader.findInLine("[1-9]")) != null;)
+        for (String token; (token = reader.findInLine("[0-9]+")) != null;)
             nums.add(Integer.valueOf(token));
 
         return nums;
