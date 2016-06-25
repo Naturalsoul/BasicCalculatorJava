@@ -1,5 +1,6 @@
 package BasicCalculatorJava;
 
+import BasicCalculatorJava.Operations.division;
 import BasicCalculatorJava.Operations.multiplication;
 import BasicCalculatorJava.Operations.sum;
 import BasicCalculatorJava.Operations.subtraction;
@@ -15,7 +16,7 @@ import java.util.Scanner;
 
 public class Calculator {
     public static void main(String[] args) {
-        int selection = 0;
+        int selection;
 
         while(true) {
             Scanner reader = new Scanner(System.in);
@@ -26,6 +27,12 @@ public class Calculator {
                 selection = reader.nextInt();
             } catch (InputMismatchException ex) {
                 System.out.println("\nOnly numbers, pls!\n");
+                continue;
+            }
+
+            if (selection > 4 && selection < 9 || selection > 9) {
+                System.out.println("\nThat option doesn't exist\n");
+                continue;
             }
 
             switch (selection) {
@@ -50,6 +57,13 @@ public class Calculator {
                     System.out.println("\nTotal: " + Mult.doMultiplication());
                     break;
 
+                case 4:
+                    System.out.println("Type all the numbers u want to divide separated with spaces:");
+                    division Div = new division(getDoubles(reader));
+
+                    System.out.println("\nTotal: " + Div.doDivision());
+                    break;
+
                 case 9:
                     System.out.println("See ya later!! ;D");
                     System.exit(0);
@@ -63,6 +77,7 @@ public class Calculator {
         System.out.println("1) I want a sum!");
         System.out.println("2) Subtraction, pls.");
         System.out.println("3) Can I have a multiplication, pls?");
+        System.out.println("4) Give me a division.");
         System.out.println("9) Good bye!");
         System.out.println("--------------------");
     }
@@ -80,6 +95,16 @@ public class Calculator {
 
         for (String token; (token = reader.findInLine("[0-9]+")) != null;)
             nums.add(Integer.valueOf(token));
+
+        return nums;
+    }
+
+    private static ArrayList<Double> getDoubles(Scanner reader) {
+        ArrayList<Double> nums = new ArrayList<>();
+        reader.nextLine();
+
+        for (String token; (token = reader.findInLine("[0-9]+(\\.\\d+)?")) != null;)
+            nums.add(Double.valueOf(token));
 
         return nums;
     }
