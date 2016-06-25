@@ -62,6 +62,7 @@ public class Calculator {
         System.out.println("Hey!! what u want to do? :D");
         System.out.println("1) I want a sum!");
         System.out.println("2) Subtraction, pls.");
+        System.out.println("3) Can I have a multiplication, pls?");
         System.out.println("9) Good bye!");
         System.out.println("--------------------");
     }
