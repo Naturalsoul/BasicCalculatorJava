@@ -1,5 +1,6 @@
 package BasicCalculatorJava;
 
+import BasicCalculatorJava.Operations.multiplication;
 import BasicCalculatorJava.Operations.sum;
 import BasicCalculatorJava.Operations.subtraction;
 
@@ -40,6 +41,13 @@ public class Calculator {
                     subtraction Sub = new subtraction(getNums(reader));
 
                     System.out.println("\nTotal: " + Sub.doSubtraction());
+                    break;
+
+                case 3:
+                    System.out.println("Type all the numbers u want to multiply separated with spaces:");
+                    multiplication Mult = new multiplication(getNums(reader));
+
+                    System.out.println("\nTotal: " + Mult.doMultiplication());
                     break;
 
                 case 9:
