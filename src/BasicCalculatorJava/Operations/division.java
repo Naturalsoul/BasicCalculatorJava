@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Division class for the division operation.
  */
 public class division {
-    private ArrayList<Integer> nums;
+    private ArrayList<Double> nums;
 
-    public division (ArrayList<Integer> nums) { this.nums = nums; }
+    public division (ArrayList<Double> nums) { this.nums = nums; }
 
-    public int doDivision() {
-        int div = 0;
-        for (Integer num : nums) {
+    public double doDivision() {
+        double div = 0;
+        for (double num : nums) {
             if (div == 0) { div = num; }
             else if (num == 0) { return 0; }
             else { div /= num; }
